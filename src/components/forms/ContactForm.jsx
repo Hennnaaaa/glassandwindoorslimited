@@ -1,22 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import { HiCheckCircle, HiExclamationCircle } from "react-icons/hi";
 import { services } from "@/data/services";
 import { company } from "@/data/company";
 
-const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
 const emptyForm = { name: "", email: "", phone: "", service: "", message: "" };
 
+// Submits to our own /api/contact route, which sends the email server-side
+// via Gmail SMTP (nodemailer) — no third-party form service, no client-side
+// API keys. Requires GMAIL_USER / GMAIL_APP_PASSWORD in .env.local.
 export default function ContactForm() {
   const [formData, setFormData] = useState(emptyForm);
   const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState(null);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -37,35 +35,22 @@ export default function ContactForm() {
     e.preventDefault();
     if (!validate()) return;
 
-    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-      setStatus("not-configured");
-      return;
-    }
-
-    setIsSubmitting(true);
+    setSubmitting(true);
     setStatus(null);
-
     try {
-      await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          phone: formData.phone || "Not provided",
-          service: formData.service || "Not specified",
-          message: formData.message,
-          to_email: company.email,
-        },
-        { publicKey: PUBLIC_KEY }
-      );
-      setStatus("success");
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error("Request failed");
+
+      setStatus("sent");
       setFormData(emptyForm);
-    } catch (error) {
-      console.error("Contact form submission failed:", error);
+    } catch {
       setStatus("error");
     } finally {
-      setIsSubmitting(false);
+      setSubmitting(false);
     }
   };
 
@@ -73,26 +58,24 @@ export default function ContactForm() {
     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8">
       <h2 className="text-2xl font-display font-bold mb-6">Send Us a Message</h2>
 
-      {status && (
-        <div
-          className={`flex items-start gap-3 p-4 rounded-xl mb-6 text-sm ${
-            status === "success"
-              ? "bg-emerald-50 border border-emerald-200 text-emerald-800"
-              : "bg-amber-50 border border-amber-200 text-amber-800"
-          }`}
-        >
-          {status === "success" ? (
-            <HiCheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
-          ) : (
-            <HiExclamationCircle className="w-5 h-5 shrink-0 mt-0.5" />
-          )}
+      {status === "sent" && (
+        <div className="flex items-start gap-3 p-4 rounded-xl mb-6 text-sm bg-emerald-50 border border-emerald-200 text-emerald-800">
+          <HiCheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
           <p>
-            {status === "success" &&
-              "Thanks — your message is on its way. We'll get back to you within one working day."}
-            {status === "error" &&
-              `Sorry, something went wrong sending your message. Please call us on ${company.phone} instead.`}
-            {status === "not-configured" &&
-              "The contact form isn't fully set up yet — please email us directly instead."}
+            Thanks — your message has been sent. We'll get back to you shortly.
+          </p>
+        </div>
+      )}
+
+      {status === "error" && (
+        <div className="flex items-start gap-3 p-4 rounded-xl mb-6 text-sm bg-red-50 border border-red-200 text-red-800">
+          <HiExclamationCircle className="w-5 h-5 shrink-0 mt-0.5" />
+          <p>
+            Something went wrong sending your message. Please email us directly at{" "}
+            <a href={`mailto:${company.email}`} className="font-semibold underline">
+              {company.email}
+            </a>{" "}
+            or call {company.phone}.
           </p>
         </div>
       )}
@@ -169,12 +152,10 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          disabled={isSubmitting}
-          className={`w-full py-4 rounded-full font-semibold transition-colors ${
-            isSubmitting ? "bg-slate-300 text-slate-500 cursor-not-allowed" : "bg-ink text-white hover:bg-glass-deep"
-          }`}
+          disabled={submitting}
+          className="w-full py-4 rounded-full font-semibold bg-ink text-white hover:bg-glass-deep transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          {isSubmitting ? "Sending..." : "Send Message"}
+          {submitting ? "Sending..." : "Send Message"}
         </button>
 
         <p className="text-xs text-ink/40 text-center">

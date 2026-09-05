@@ -223,8 +223,11 @@ export const sealedUnitTypes = [
     ],
     image: "/images/services/sealed-units/triple-glazed-cover.jpg",
     gallery: [
-      "/images/services/sealed-units/unit-cutaway-diagram.jpg",
+      "/images/services/sealed-units/triple-glazed-diagram-1.jpg",
+      "/images/services/sealed-units/triple-glazed-diagram-2.png",
+      "/images/services/sealed-units/triple-glazed-diagram-3.jpg",
       "/images/services/sealed-units/spacer-bar-diagram.jpg",
+      "/images/services/sealed-units/unit-cutaway-diagram.jpg",
     ],
   },
   {

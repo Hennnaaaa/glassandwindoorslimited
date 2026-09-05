@@ -50,9 +50,12 @@ dedicated files so nothing appears twice across the site.
 | Double Glazed Units | services/sealed-units/double-glazed-decorative.jpg | Business owner's own photo (Desktop: "double glazed in sealed units/WhatsApp Image 2026-09-03 at 1.02.46 AM.jpeg") |
 | Double Glazed Units | services/sealed-units/double-glazed-decorative-2.jpg | Business owner's own photo (same folder, "...1.02.47 AM.jpeg") |
 | Double Glazed Units | services/sealed-units/double-glazed-decorative-3.jpg | Business owner's own photo (same folder, "...1.02.47 AMnn.jpeg") |
-| Triple Glazed Units | services/sealed-units/triple-glazed-cover.jpg | Pexels — https://www.pexels.com/photo/contemporary-country-house-facade-in-winter-7031406/ |
-| Triple Glazed Units | services/sealed-units/unit-cutaway-diagram.jpg | Business owner's diagram (Desktop: "tripleglazed.jpeg"), **cropped** — see note below |
-| Triple Glazed Units | services/sealed-units/spacer-bar-diagram.jpg | Business owner's diagram (Desktop: "triple glass.jpg"), **cropped** — see note below |
+| Triple Glazed Units | services/sealed-units/triple-glazed-cover.jpg | Business owner's photo (Desktop: "tripple glazed/images.jpg") — real bay-window installation photo |
+| Triple Glazed Units | services/sealed-units/triple-glazed-diagram-1.jpg | Business owner's diagram (Desktop: "tripple glazed/images (1).jpg") — Low-E glass / gas area / warm edge spacer cutaway |
+| Triple Glazed Units | services/sealed-units/triple-glazed-diagram-2.png | Business owner's diagram (Desktop: "tripple glazed/images (1).png") — 34mm vs 36mm unit thickness comparison |
+| Triple Glazed Units | services/sealed-units/triple-glazed-diagram-3.jpg | Business owner's diagram (Desktop: "tripple glazed/images (2).jpg") — triple-pane edge cutaway render |
+| Triple Glazed Units | services/sealed-units/spacer-bar-diagram.jpg | Business owner's diagram (Desktop: "tripple glazed/triple glass.jpg"), **cropped** — see note below |
+| Triple Glazed Units | services/sealed-units/unit-cutaway-diagram.jpg | Business owner's diagram (Desktop: "tripple glazed/tripleglazed.jpeg"), **cropped** — see note below |
 | Acoustic & Laminated Glass | services/sealed-units/acoustic-glass.jpg | Business owner's own photo (Desktop: "ascoutic glass.jpeg") |
 | Acoustic & Laminated Glass | services/sealed-units/acoustic-gallery-1.jpg | Own project photo — glazingzz project (`tilt-&-turn-windows/gallery-1.jpg`, not used elsewhere on this site) |
 | Acoustic & Laminated Glass | services/sealed-units/acoustic-gallery-2.jpg | Own project photo — glazingzz project (`tilt-&-turn-windows/gallery-4.jpg`) |
@@ -142,10 +145,20 @@ deleted from this folder — they are not referenced anywhere and no longer exis
   doesn't exist and used that company's branded marketing artwork. Given the choice between
   skipping them, cropping them, or commissioning original illustrations, the owner chose to
   crop: each was cropped to the top 1290px of a 1920×1440 source (verified the crop line sits
-  below every text label, removing only the empty-background strip the logo sat in) to produce
-  spacer-bar-diagram.jpg and unit-cutaway-diagram.jpg. No version with the logo intact was
-  ever published. The unbranded diagram from that original set of four (`Desktop/ascoutic
-  glass.jpeg`, no visible logo) was used unedited as services/sealed-units/acoustic-glass.jpg.
+  below every text label, removing only the empty-background strip the logo sat in). No
+  version with the logo intact was ever published. The unbranded diagram from that original
+  set of four (`Desktop/ascoutic glass.jpeg`, no visible logo) was used unedited as
+  services/sealed-units/acoustic-glass.jpg. Triple Glazed Units' cover was later replaced
+  with a real bay-window photo, and the gallery expanded to include the two cropped PRESSGLASS
+  diagrams *plus* three more diagrams from a new "tripple glazed" desktop folder (four images
+  total there: one real photo used as cover, three generic construction diagrams used as
+  gallery, none logo-branded) — per explicit instruction to keep the original two cropped
+  diagrams alongside the new ones rather than replace them. Triple Glazed Units' gallery is
+  therefore larger (5 images) than every other sealed-unit sub-type (2 images each). The three
+  "tripple glazed" folder images were generically named ("images.jpg", "images (1).jpg" etc.,
+  consistent with a reverse-image/Google Images download) rather than supplied as the owner's
+  own photography — worth bearing in mind if their original source or licence ever needs
+  checking.
 - **services/tilt-turn-windows/cover.jpg** shows a window mechanically opened in the tilt
   position (top-hinged, swung inward) — the clearest available illustration of the tilt &
   turn opening mechanism.
