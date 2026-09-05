@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { HiArrowRight } from "react-icons/hi";
 import { services } from "@/data/services";
+import { getAspectRatio } from "@/data/imageDimensions";
 import Reveal from "@/components/ui/Reveal";
 import TiltCard from "@/components/ui/TiltCard";
 
@@ -30,14 +31,17 @@ export default function ServicesGrid() {
                   href={`/services/${service.slug}`}
                   className="block h-full rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-shadow"
                 >
-                  <div className="relative h-44 overflow-hidden">
+                  <div
+                    className="relative overflow-hidden"
+                    style={{ aspectRatio: getAspectRatio(service.image) }}
+                  >
                     <Image
                       src={service.image}
                       alt={service.name}
                       fill
                       priority={i === 0}
                       sizes="(max-width: 768px) 100vw, 25vw"
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-5">

@@ -2,7 +2,7 @@
 
 import { Suspense, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Environment, Float, ContactShadows } from "@react-three/drei";
+import { Environment, Lightformer, Float, ContactShadows } from "@react-three/drei";
 import * as THREE from "three";
 
 const FRAME_COLOR = "#161d2b";
@@ -116,7 +116,15 @@ export default function GlassHeroScene() {
       <Suspense fallback={null}>
         <WindowModel />
         <FloatingShards />
-        <Environment preset="city" />
+        {/* Procedurally generated on the GPU — unlike Environment presets,
+            this never fetches an external HDR file over the network (the
+            "city" preset alone was pulling ~1.5MB from raw.githubusercontent.com
+            on every homepage load). */}
+        <Environment resolution={256}>
+          <Lightformer intensity={2.5} color="white" position={[0, 4, -5]} scale={[10, 5, 1]} />
+          <Lightformer intensity={1.5} color="#bae6fd" position={[-5, 1, 3]} scale={[5, 5, 1]} rotation={[0, Math.PI / 3, 0]} />
+          <Lightformer intensity={1.5} color="white" position={[5, 1, 3]} scale={[5, 5, 1]} rotation={[0, -Math.PI / 3, 0]} />
+        </Environment>
         <ContactShadows position={[0, -2, 0]} opacity={0.35} scale={10} blur={2.4} far={4} />
       </Suspense>
     </Canvas>

@@ -72,13 +72,16 @@ export default function SealedUnitsPage() {
                   href={`/services/sealed-units/${type.slug}`}
                   className="group flex flex-col h-full rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-shadow"
                 >
-                  <div className="relative h-40 overflow-hidden">
+                  <div
+                    className="relative overflow-hidden"
+                    style={{ aspectRatio: getAspectRatio(type.image) }}
+                  >
                     <Image
                       src={type.image}
                       alt={type.name}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-5 flex flex-col flex-1">

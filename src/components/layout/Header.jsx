@@ -66,12 +66,12 @@ export default function Header() {
                 >
                   <Link
                     href={link.href}
-                    className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                    className={`flex items-center gap-1 px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
                       isDark ? "text-white/90 hover:text-white" : "text-ink/80 hover:text-ink"
                     }`}
                   >
                     {link.label}
-                    <HiChevronDown className="w-3.5 h-3.5" />
+                    <HiChevronDown className="w-3.5 h-3.5 shrink-0" />
                   </Link>
                   {openMenu === link.label && (
                     <div
@@ -111,7 +111,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  className={`px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
                     isDark ? "text-white/90 hover:text-white" : "text-ink/80 hover:text-ink"
                   }`}
                 >
@@ -121,17 +121,20 @@ export default function Header() {
             )}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
             <a
               href={company.phoneHref}
-              className={`flex items-center gap-2 text-sm font-semibold ${isDark ? "text-white" : "text-ink"}`}
+              aria-label={`Call us on ${company.phone}`}
+              title={company.phone}
+              className={`flex h-10 w-10 items-center justify-center rounded-full transition-colors ${
+                isDark ? "bg-white/10 text-white hover:bg-white/20" : "bg-surface-soft text-ink hover:bg-slate-200"
+              }`}
             >
-              <HiPhone className="w-4 h-4 text-glass-deep" />
-              {company.phone}
+              <HiPhone className="w-4.5 h-4.5" />
             </a>
             <Link
               href="/contact"
-              className="px-5 py-2.5 rounded-full text-sm font-semibold bg-ink text-white hover:bg-glass-deep transition-colors"
+              className="px-5 py-2.5 rounded-full text-sm font-semibold bg-ink text-white hover:bg-glass-deep transition-colors whitespace-nowrap"
             >
               Get a Free Quote
             </Link>

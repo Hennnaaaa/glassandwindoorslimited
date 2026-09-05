@@ -118,8 +118,8 @@ export default async function ServiceDetailPage({ params }) {
                 href={`/services/${s.slug}`}
                 className="group rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-lg transition-shadow"
               >
-                <div className="relative h-36">
-                  <Image src={s.image} alt={s.name} fill sizes="33vw" className="object-cover group-hover:scale-110 transition-transform duration-500" />
+                <div className="relative" style={{ aspectRatio: getAspectRatio(s.image) }}>
+                  <Image src={s.image} alt={s.name} fill sizes="33vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-5">
                   <h3 className="font-display font-semibold">{s.name}</h3>

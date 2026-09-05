@@ -4,11 +4,11 @@ import { HiArrowRight } from "react-icons/hi";
 import Reveal from "@/components/ui/Reveal";
 
 const items = [
-  { src: "/images/services/bifold-doors/cover.jpg", alt: "Bi-folding doors opened onto a garden", span: "sm:col-span-2 sm:row-span-2" },
-  { src: "/images/services/composite-doors/cover.jpg", alt: "Modern composite front door" },
-  { src: "/images/services/roof-lanterns/cover.jpg", alt: "Glass roof lantern extension" },
-  { src: "/images/services/casement-windows/cover.jpg", alt: "uPVC casement windows" },
-  { src: "/images/services/sliding-doors/cover.jpg", alt: "Sliding patio doors" },
+  { src: "/images/completed-projects/project-2.jpg", alt: "Completed installation — bifold doors onto a garden extension", span: "sm:col-span-2 sm:row-span-2" },
+  { src: "/images/completed-projects/project-6.jpg", alt: "Completed installation — composite front door" },
+  { src: "/images/completed-projects/project-12.jpg", alt: "Completed installation — garden room sliding doors" },
+  { src: "/images/completed-projects/project-11.jpg", alt: "Completed installation — windows and composite door" },
+  { src: "/images/completed-projects/project-3.jpg", alt: "Completed installation — conservatory extension" },
 ];
 
 export default function GalleryPreview() {
@@ -25,10 +25,10 @@ export default function GalleryPreview() {
             </h2>
           </div>
           <Link
-            href="/gallery"
+            href="/completed-projects"
             className="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-glass-deep transition-colors"
           >
-            View full gallery
+            View all completed projects
             <HiArrowRight className="w-4 h-4" />
           </Link>
         </Reveal>

@@ -41,6 +41,7 @@ export const navigation = [
     })),
   },
   { href: "/gallery", label: "Gallery" },
+  { href: "/completed-projects", label: "Projects" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

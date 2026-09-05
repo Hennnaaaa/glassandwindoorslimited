@@ -200,10 +200,10 @@ export const sealedUnitTypes = [
       "Manufactured to your exact frame measurements",
       "10-year insurance-backed guarantee against seal failure",
     ],
-    image: "/images/services/sealed-units/cover.jpg",
+    image: "/images/services/sealed-units/double-glazed-decorative.jpg",
     gallery: [
-      "/images/services/sealed-units/gallery-1.jpg",
-      "/images/services/sealed-units/gallery-2.jpg",
+      "/images/services/sealed-units/double-glazed-decorative-2.jpg",
+      "/images/services/sealed-units/double-glazed-decorative-3.jpg",
     ],
   },
   {
@@ -223,8 +223,8 @@ export const sealedUnitTypes = [
     ],
     image: "/images/services/sealed-units/triple-glazed-cover.jpg",
     gallery: [
-      "/images/services/sealed-units/cover.jpg",
-      "/images/services/sealed-units/gallery-1.jpg",
+      "/images/services/sealed-units/unit-cutaway-diagram.jpg",
+      "/images/services/sealed-units/spacer-bar-diagram.jpg",
     ],
   },
   {
@@ -242,10 +242,10 @@ export const sealedUnitTypes = [
       "Laminated inner pane adds a security benefit against forced entry",
       "10-year insurance-backed guarantee against seal failure",
     ],
-    image: "/images/services/tilt-turn-windows/cover.jpg",
+    image: "/images/services/sealed-units/acoustic-glass.jpg",
     gallery: [
-      "/images/services/tilt-turn-windows/gallery-1.jpg",
-      "/images/services/tilt-turn-windows/gallery-2.jpg",
+      "/images/services/sealed-units/acoustic-gallery-1.jpg",
+      "/images/services/sealed-units/acoustic-gallery-2.jpg",
     ],
   },
   {
@@ -263,10 +263,10 @@ export const sealedUnitTypes = [
       "Same thermal and security performance as a plain sealed unit",
       "10-year insurance-backed guarantee against seal failure",
     ],
-    image: "/images/services/casement-windows/cover.jpg",
+    image: "/images/services/sealed-units/georgian-bar-real.jpg",
     gallery: [
-      "/images/services/casement-windows/gallery-1.jpg",
-      "/images/services/casement-windows/gallery-2.jpg",
+      "/images/services/sealed-units/georgian-bar-gallery-1.jpg",
+      "/images/services/sealed-units/georgian-bar-gallery-2.jpg",
     ],
   },
   {
@@ -284,10 +284,10 @@ export const sealedUnitTypes = [
       "Can be combined with Georgian bar or acoustic specifications",
       "10-year insurance-backed guarantee against seal failure",
     ],
-    image: "/images/services/composite-doors/cover.jpg",
+    image: "/images/services/sealed-units/obscure-cover.jpg",
     gallery: [
-      "/images/services/composite-doors/gallery-1.jpg",
-      "/images/services/composite-doors/gallery-2.jpg",
+      "/images/services/sealed-units/obscure-gallery-1.jpg",
+      "/images/services/sealed-units/obscure-gallery-2.jpg",
     ],
   },
   {
@@ -305,10 +305,10 @@ export const sealedUnitTypes = [
       "Combines with argon fill for year-round thermal balance",
       "10-year insurance-backed guarantee against seal failure",
     ],
-    image: "/images/services/roof-lanterns/cover.jpg",
+    image: "/images/services/sealed-units/solar-control-cover.jpg",
     gallery: [
-      "/images/services/roof-lanterns/gallery-1.jpg",
-      "/images/services/roof-lanterns/gallery-2.jpg",
+      "/images/services/sealed-units/solar-control-gallery-1.jpg",
+      "/images/services/sealed-units/solar-control-gallery-2.jpg",
     ],
   },
   {
@@ -328,8 +328,8 @@ export const sealedUnitTypes = [
     ],
     image: "/images/services/sealed-units/failed-unit-cover.jpg",
     gallery: [
-      "/images/services/sealed-units/gallery-2.jpg",
-      "/images/services/sealed-units/cover.jpg",
+      "/images/services/sealed-units/failed-unit-gallery-1.jpg",
+      "/images/services/sealed-units/failed-unit-gallery-2.jpg",
     ],
   },
 ];

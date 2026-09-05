@@ -29,12 +29,17 @@ function HeroPhotoLayer({ photos }) {
   return (
     <>
       {photos.map((src, i) => (
+        // No `priority` here: this component renders both the landscape and
+        // portrait sets at once (CSS hides whichever doesn't match the
+        // breakpoint via display:none). `priority` forces an eager fetch
+        // regardless of visibility, which was downloading the hidden set's
+        // images on every load too. Plain lazy loading correctly skips
+        // display:none images since they never intersect the viewport.
         <Image
           key={src}
           src={src}
           alt=""
           fill
-          priority={i === 0}
           sizes="100vw"
           className="object-cover transition-opacity duration-1000 ease-in-out"
           style={{ opacity: i === active ? 0.45 : 0 }}

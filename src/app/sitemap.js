@@ -3,7 +3,7 @@ import { services, sealedUnitTypes } from "@/data/services";
 const baseUrl = "https://glassandwindoors.co.uk";
 
 export default function sitemap() {
-  const staticRoutes = ["", "/about", "/services", "/gallery", "/contact", "/privacy-policy", "/terms-conditions", "/cookie-policy"].map(
+  const staticRoutes = ["", "/about", "/services", "/gallery", "/completed-projects", "/contact", "/privacy-policy", "/terms-conditions", "/cookie-policy"].map(
     (path) => ({
       url: `${baseUrl}${path}`,
       lastModified: new Date(),

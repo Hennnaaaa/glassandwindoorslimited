@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { HiArrowRight } from "react-icons/hi";
 import { services, sealedUnitTypes, getServiceBySlug } from "@/data/services";
+import { getAspectRatio } from "@/data/imageDimensions";
 import Reveal from "@/components/ui/Reveal";
 import CtaBanner from "@/components/sections/CtaBanner";
 
@@ -31,16 +32,19 @@ function ServiceCard({ item, href, delay, priority }) {
     <Reveal delay={delay}>
       <Link
         href={href}
-        className="group flex flex-col sm:flex-row gap-5 rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-shadow p-3 h-full"
+        className="group flex flex-col sm:flex-row sm:items-start gap-5 rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-shadow p-3 h-full"
       >
-        <div className="relative w-full sm:w-44 h-40 sm:h-auto shrink-0 rounded-xl overflow-hidden">
+        <div
+          className="relative w-full sm:w-44 shrink-0 rounded-xl overflow-hidden"
+          style={{ aspectRatio: getAspectRatio(item.image) }}
+        >
           <Image
             src={item.image}
             alt={item.name}
             fill
             priority={priority}
             sizes="176px"
-            className="object-cover group-hover:scale-110 transition-transform duration-500"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
         <div className="py-2 pr-2">
@@ -121,13 +125,16 @@ export default function ServicesPage() {
                   href={`/services/sealed-units/${type.slug}`}
                   className="group flex flex-col h-full rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-shadow"
                 >
-                  <div className="relative h-36 overflow-hidden">
+                  <div
+                    className="relative overflow-hidden"
+                    style={{ aspectRatio: getAspectRatio(type.image) }}
+                  >
                     <Image
                       src={type.image}
                       alt={type.name}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-5 flex flex-col flex-1">
