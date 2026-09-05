@@ -7,23 +7,26 @@ export async function POST(request) {
     return Response.json({ error: "Missing required fields" }, { status: 400 });
   }
 
-  const { GMAIL_USER, GMAIL_APP_PASSWORD, CONTACT_TO_EMAIL } = process.env;
-  if (!GMAIL_USER || !GMAIL_APP_PASSWORD) {
+  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_TO_EMAIL } = process.env;
+  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
     return Response.json(
       { error: "Email is not configured on the server" },
       { status: 500 }
     );
   }
 
+  const port = Number(SMTP_PORT) || 587;
   const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: { user: GMAIL_USER, pass: GMAIL_APP_PASSWORD },
+    host: SMTP_HOST,
+    port,
+    secure: port === 465,
+    auth: { user: SMTP_USER, pass: SMTP_PASS },
   });
 
   try {
     await transporter.sendMail({
-      from: `"Glass and Windoors Website" <${GMAIL_USER}>`,
-      to: CONTACT_TO_EMAIL || GMAIL_USER,
+      from: `"Glass and Windoors Website" <${SMTP_USER}>`,
+      to: CONTACT_TO_EMAIL || SMTP_USER,
       replyTo: email,
       subject: `Website enquiry from ${name}`,
       text: [

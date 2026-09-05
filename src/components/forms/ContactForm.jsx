@@ -8,8 +8,9 @@ import { company } from "@/data/company";
 const emptyForm = { name: "", email: "", phone: "", service: "", message: "" };
 
 // Submits to our own /api/contact route, which sends the email server-side
-// via Gmail SMTP (nodemailer) — no third-party form service, no client-side
-// API keys. Requires GMAIL_USER / GMAIL_APP_PASSWORD in .env.local.
+// via the business mailbox's own SMTP (nodemailer) — no third-party form
+// service, no client-side API keys. Requires SMTP_HOST / SMTP_USER /
+// SMTP_PASS in .env.local.
 export default function ContactForm() {
   const [formData, setFormData] = useState(emptyForm);
   const [errors, setErrors] = useState({});
